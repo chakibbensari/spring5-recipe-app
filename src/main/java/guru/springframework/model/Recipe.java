@@ -33,6 +33,8 @@ public class Recipe {
     @OneToOne(cascade = CascadeType.ALL)
     private Notes notes;
 
+    @ManyToMany(mappedBy = "recipes")
+    private Set<Category> categories;
 
     public String getDescription() {
         return description;
@@ -138,5 +140,23 @@ public class Recipe {
 
     public void setDifficulty(Difficulty difficulty) {
         this.difficulty = difficulty;
+    }
+
+    public Set<Category> getCategories() {
+        return categories;
+    }
+
+    public Recipe addCategory(Category category){
+        getCategories().add(category);
+        return this;
+    }
+
+    public Recipe removeCategory(Category category){
+        getCategories().add(category);
+        return this;
+    }
+
+    public void setCategories(Set<Category> categories) {
+        this.categories = categories;
     }
 }
