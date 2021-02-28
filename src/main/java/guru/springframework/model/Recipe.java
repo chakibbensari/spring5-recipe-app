@@ -1,6 +1,13 @@
 package guru.springframework.model;
 
+import javax.persistence.*;
+
+@Entity
 public class Recipe {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
     private String description;
     private Integer prepTime;
@@ -10,7 +17,12 @@ public class Recipe {
     private String url;
     private String directions;
 //    private Difficulty difficulty;
+    @Lob
     private Byte[] image;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    private Notes notes;
+
 
     public String getDescription() {
         return description;
@@ -74,5 +86,13 @@ public class Recipe {
 
     public void setImage(Byte[] image) {
         this.image = image;
+    }
+
+    public Notes getNotes() {
+        return notes;
+    }
+
+    public void setNotes(Notes notes) {
+        this.notes = notes;
     }
 }
