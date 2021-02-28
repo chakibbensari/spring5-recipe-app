@@ -1,5 +1,7 @@
 package guru.springframework.model;
 
+import guru.springframework.enums.Difficulty;
+
 import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
@@ -18,7 +20,9 @@ public class Recipe {
     private String source;
     private String url;
     private String directions;
-//    private Difficulty difficulty;
+
+    @Enumerated(value = EnumType.STRING)
+    private Difficulty difficulty;
 
     @OneToMany(mappedBy = "recipe", cascade = CascadeType.ALL)
     private Set<Ingredient> ingredients = new HashSet<>();
@@ -122,5 +126,17 @@ public class Recipe {
 
     public void setIngredients(Set<Ingredient> ingredients) {
         this.ingredients = ingredients;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Difficulty getDifficulty() {
+        return difficulty;
+    }
+
+    public void setDifficulty(Difficulty difficulty) {
+        this.difficulty = difficulty;
     }
 }
