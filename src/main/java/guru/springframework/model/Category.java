@@ -1,11 +1,13 @@
 package guru.springframework.model;
 
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 import javax.persistence.*;
 import java.util.Set;
 
 @Data
+@EqualsAndHashCode(of = {"id"})
 @Entity
 public class Category {
 

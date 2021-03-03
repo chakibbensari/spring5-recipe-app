@@ -1,10 +1,12 @@
 package guru.springframework.model;
 
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 import javax.persistence.*;
 
 @Data
+@EqualsAndHashCode(of = {"id"})
 @Entity
 public class Notes {
 
