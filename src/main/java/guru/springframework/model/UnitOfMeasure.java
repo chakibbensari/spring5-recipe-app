@@ -1,10 +1,13 @@
 package guru.springframework.model;
 
+import lombok.Data;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+@Data
 @Entity
 public class UnitOfMeasure {
 
@@ -14,11 +17,4 @@ public class UnitOfMeasure {
 
     private String unit;
 
-    public String getUnit() {
-        return unit;
-    }
-
-    public void setUnit(String unit) {
-        this.unit = unit;
-    }
 }

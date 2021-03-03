@@ -1,8 +1,11 @@
 package guru.springframework.model;
 
+import lombok.Data;
+
 import javax.persistence.*;
 import java.util.Set;
 
+@Data
 @Entity
 public class Category {
 
@@ -18,26 +21,6 @@ public class Category {
                inverseJoinColumns = @JoinColumn(name = "category_id"))
     private Set<Recipe> recipes;
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public Set<Recipe> getRecipes() {
-        return recipes;
-    }
-
     public Category addRecipe(Recipe recipe){
         getRecipes().add(recipe);
         return this;
@@ -48,7 +31,4 @@ public class Category {
         return this;
     }
 
-    public void setRecipes(Set<Recipe> recipes) {
-        this.recipes = recipes;
-    }
 }
