@@ -13,7 +13,7 @@ import static org.junit.Assert.*;
 
 @RunWith(SpringRunner.class)
 @DataJpaTest
-public class CategoryRepositoryTest {
+public class CategoryRepositoryTestIT {
 
     @Autowired
     private CategoryRepository categoryRepository;
